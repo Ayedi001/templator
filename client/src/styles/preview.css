@@ -1,0 +1,19 @@
+.preview-toolbar {
+  position: fixed; z-index: 500; top: 14px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; justify-content: space-between; gap: 22px;
+  width: min(1180px, calc(100% - 28px)); padding: 9px 11px 9px 16px;
+  background: rgba(245,241,232,.9); border: 1px solid rgba(23,20,17,.14);
+  border-radius: 999px; box-shadow: 0 18px 40px -20px rgba(23,20,17,.4);
+  backdrop-filter: blur(18px); font-family: var(--font-label);
+}
+.preview-toolbar b { display: block; font-size: 11px; font-weight: 600; }
+.preview-toolbar small { display: block; font-size: 8.5px; color: var(--muted); margin-top: 1px; }
+.preview-toolbar-divider { width: 1px; height: 22px; background: var(--line); }
+.preview-toolbar .brand-logo { transform: scale(.9); transform-origin: left center; }
+.site-root .site-announcement { position: relative; z-index: 10; }
+@media (max-width: 780px) {
+  .preview-toolbar { top: 8px; border-radius: 16px; padding: 8px 10px; }
+  .preview-toolbar .brand-logo, .preview-toolbar-divider, .preview-toolbar .btn.btn-light:first-of-type { display: none; }
+  .preview-toolbar b { font-size: 10px; }
+  .preview-toolbar small { font-size: 8px; }
+}
