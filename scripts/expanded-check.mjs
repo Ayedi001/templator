@@ -1,0 +1,12 @@
+﻿import { chromium } from 'playwright-core';
+const B='http://127.0.0.1:4100';
+const browser=await chromium.launch({headless:true,executablePath:'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'});
+const page=await browser.newPage({viewport:{width:1440,height:1000}});
+await page.goto(B+'/templates/northstar-fintech',{waitUntil:'networkidle'}); await page.waitForSelector('.site-root');
+console.log('northstar cart buttons', await page.locator('.site-cart-btn').count(), 'nav cta', await page.locator('.site-nav-cta').first().innerText());
+await page.screenshot({path:'.shots/template-northstar-final2.png'});
+await page.goto(B+'/',{waitUntil:'networkidle'});
+console.log('landing count 64', (await page.locator('.hero-badge').innerText()).includes('64'));
+console.log('landing feature 64', (await page.locator('.template-count-big').innerText()).includes('64'));
+await page.screenshot({path:'.shots/landing-64-final2.png'});
+await browser.close();
